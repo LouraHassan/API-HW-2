@@ -374,3 +374,8 @@ a:hover {
   color: rgb(165, 91, 91);
   margin: 10px;
 }
+.forgot-text{
+    align-self: flex-start;
+    margin: 10px;
+
+}
