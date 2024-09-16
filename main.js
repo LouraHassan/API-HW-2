@@ -32,9 +32,16 @@ SignUpBtn.addEventListener("click", () => {
     warningName.classList.remove("none");
     warningEmail.classList.add("none");
     warningAll.classList.add("none");
-    name1.classList.add("redBorder");
+      name1.classList.add("redBorder");
+    
+      email1.classList.remove("redBorder");
+      password1.classList.remove("redBorder");
+      confirm.classList.remove("redBorder");
   } else if (!validEmail(email1.value)) {
-    email1.classList.add("redBorder");
+      email1.classList.add("redBorder");
+      name1.classList.remove("redBorder");
+      password1.classList.remove("redBorder");
+      confirm.classList.remove("redBorder");
     warningEmail.textContent = "Invalid email format";
     warningEmail.classList.remove("none");
     warningName.classList.add("none");
@@ -46,7 +53,10 @@ SignUpBtn.addEventListener("click", () => {
     warningEmail.classList.add("none");
     warningAll.classList.add("none");
     password1.classList.add("redBorder");
-    confirm.classList.add("redBorder");
+      confirm.classList.add("redBorder");
+      name1.classList.remove("redBorder");
+      email1.classList.remove("redBorder");
+    
   } else if (confirm.value != password1.value) {
     warningConfirm.textContent = "Password  doesn't match";
     warningConfirm.classList.remove("none");
@@ -55,7 +65,10 @@ SignUpBtn.addEventListener("click", () => {
     warningEmail.classList.add("none");
     warningAll.classList.add("none");
     password1.classList.add("redBorder");
-    confirm.classList.add("redBorder");
+      confirm.classList.add("redBorder");
+      name1.classList.remove("redBorder");
+      email1.classList.remove("redBorder");
+     
   } else {
     checkUsers(email1.value).then((isFound) => {
       if (isFound) {

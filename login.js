@@ -17,14 +17,18 @@ LoginBtn.addEventListener("click", () => {
     warningAll.textContent = "You must fill all the boxes";
     warningAll.classList.remove("none");
   } else if (!validEmail(email2.value)) {
-    email2.classList.add("redBorder");
+      email2.classList.add("redBorder");
+      password2.classList.remove("redBorder");
+
     warningEmail.textContent = "Invalid email";
     warningEmail.classList.remove("none");
     warningAll.classList.add("none");
   } else {
     checkUsers(email2.value).then((isFound) => {
       if (!isFound) {
-        email2.classList.add("redBorder");
+          email2.classList.add("redBorder");
+          password2.classList.remove("redBorder");
+
         password2.classList.add("redBorder");
         warningAll.textContent = "There is no account with this email";
         warningAll.classList.add("none");
@@ -34,7 +38,9 @@ LoginBtn.addEventListener("click", () => {
           .then((users) => {
             let user = users.find((user) => user.email === email2.value);
             if (password2.value != user.password) {
-              password2.classList.add("redBorder");
+                password2.classList.add("redBorder");
+                email2.classList.remove("redBorder");
+
               warningPassword.textContent = "Incorrect password";
               warningPassword.classList.remove("none");
               warningAll.classList.add("none");
